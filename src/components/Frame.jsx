@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import getFinalData from "../getFinalData";
-
+import getPortData from "../usePortData";
+import PortComponent from "./PortComponent";
 function Frame() {
   const [shopId, setShopId] = useState("");
   const [submittedShopId, setSubmittedShopId] = useState(null);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [port_id, setPortId] = useState(null);
 
   useEffect(() => {
     if (!submittedShopId) {
@@ -19,6 +21,7 @@ function Frame() {
 
       try {
         const result = await getFinalData(submittedShopId);
+        
         setData(result);
       } catch (err) {
         console.error(err);
@@ -92,7 +95,9 @@ function Frame() {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.map((item) => (
+                  {data.map((item) => {
+                    
+                    return (
                     <tr
                       key={item.rc_id}
                       className="bg-neutral-primary border-b border-default"
@@ -110,11 +115,13 @@ function Frame() {
                       </td>
                       <td className={`px-2 py-1 md:px-6 md:py-3 ${item.salt > 0 ? "bg-red-400 text-zinc-300" : ""}`}>{item.salt}</td>
                       <td className={`px-2 py-1 md:px-6 md:py-3 ${item.gram > 0 ? "bg-red-400 text-zinc-300" : ""}`}>{item.gram}</td>
-                      <td className={`px-2 py-1 md:px-6 md:py-3 ${item.port ? "bg-red-400 text-zinc-300" : ""}`}>
-                        {item.port ? "" : ""}
+                      <td className={`px-2 py-1 md:px-6 md:py-3 `}>
+                        <PortComponent rc_id={item.rc_id} /> 
                       </td>
                     </tr>
-                  ))}
+                  )
+                }
+                  )}
                 </tbody>
               </table>
 
@@ -167,7 +174,7 @@ function Frame() {
                       >
                         {item.gram}
                       </span></p>
-                    <p>रिमार्क: {item.port ? "" : ""}</p>
+                    <p className="my-2"><PortComponent rc_id={item.rc_id} /></p>
                   </div>
                 ))}
               </div>

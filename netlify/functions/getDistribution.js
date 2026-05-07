@@ -9,7 +9,7 @@ export async function handler(event) {
     };
   }
 
-  const formatted = "2026-04-30";
+  const formatted = "2026-05-07";
 
   try {
     const res = await fetch(

@@ -1,9 +1,11 @@
 import { getAllotment } from "./getAllotment.js";
 import { getDistribution } from "./getDistribution.js";
+import getPortData from "./usePortData.js";
 
 export default async function getFinalData(shop_id) {
   const distributionData = await getDistribution(shop_id);
   const allotmentData = await getAllotment(shop_id);
+
   return findAllotment(distributionData, allotmentData);
 }
 
