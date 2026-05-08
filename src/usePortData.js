@@ -23,7 +23,7 @@ export default function usePortData(rc_id) {
 
         const response = await res.json();
         setFPS_id(response.port_fpsid);
-        setMemberName(response.memberName)
+        setMember(response.memberName)
       } catch (err) {
         setError(true);
       } finally {
@@ -36,5 +36,5 @@ export default function usePortData(rc_id) {
     }
   }, [rc_id]);
 
-  return { error, fps_id, loading };
+  return { error, fps_id, loading,memberName };
 }
