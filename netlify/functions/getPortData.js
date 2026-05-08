@@ -27,11 +27,11 @@ export async function handler(event) {
 
     const response = await res.json();
     const portFpsId = response?.benficaryTransList?.[0]?.port_fpsid || null;
-    console.log(`Fetched port_fpsid for rc_id ${rc_id}:`, portFpsId);
+    const memberName = response?.beneficaryMemberList[0]?.member_name_en || null
     return {
       statusCode: 200,
       headers: { "Access-Control-Allow-Origin": "*" },
-      body: JSON.stringify({ port_fpsid: portFpsId }),
+      body: JSON.stringify({ port_fpsid: portFpsId, memberName:memberName }),
     };
     
 
