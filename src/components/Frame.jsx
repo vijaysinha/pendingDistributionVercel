@@ -124,7 +124,7 @@ function Frame() {
                   )}
                 </tbody>
               </table>
-
+              
               {/* Mobile Card Layout */}
               <div className="md:hidden space-y-4">
                 {data.map((item) => (
@@ -181,6 +181,9 @@ function Frame() {
             </div>
           </pre>
         )}
+        <footer className="w-full h-1/3 bg-transparent text-zinc-500">
+                <p>@Vijay Sinha</p>
+        </footer>
       </section>
     </>
   );
