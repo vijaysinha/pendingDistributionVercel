@@ -90,7 +90,7 @@ function Frame() {
                       चना
                     </th>
                     <th className="px-2 py-1 md:px-6 md:py-3 font-medium">
-                      रिमार्क
+                      उठाव की स्थिति
                     </th>
                   </tr>
                 </thead>
