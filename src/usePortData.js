@@ -4,7 +4,7 @@ export default function usePortData(rc_id) {
   const [error, setError] = useState(false);
   const [fps_id, setFPS_id] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [memberName, setMember] = useState("");
+  // const [memberName, setMember] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       setError(false);
@@ -23,7 +23,7 @@ export default function usePortData(rc_id) {
 
         const response = await res.json();
         setFPS_id(response.port_fpsid);
-        setMember(response.memberName)
+        // setMember(response.memberName)
       } catch (err) {
         setError(true);
       } finally {
@@ -36,5 +36,5 @@ export default function usePortData(rc_id) {
     }
   }, [rc_id]);
 
-  return { error, fps_id, loading,memberName };
+  return { error, fps_id, loading };
 }
