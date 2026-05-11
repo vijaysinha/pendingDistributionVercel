@@ -26,8 +26,9 @@ export async function handler(event) {
     }
 
     const response = await res.json();
-    const portFpsId = response?.benficaryTransList?.[0]?.port_fpsid || null;
-    // const memberName = response?.beneficaryMemberList[0]?.member_name_en || null
+    const portFpsId = response?.benficaryTransList || null;
+    // console.log("API response:", portFpsId);
+   
     return {
       statusCode: 200,
       headers: { "Access-Control-Allow-Origin": "*" },

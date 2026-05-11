@@ -52,8 +52,6 @@ export async function getDistribution(shop_id) {
       return accu;
     }, {}),
   );
- 
-  
-
   return consolidated;
 }
+
