@@ -1,20 +1,27 @@
 import { getAllotment } from "./getAllotment.js";
 import { getDistribution } from "./getDistribution.js";
-import getPortData from "./usePortData.js";
 
 export default async function getFinalData(shop_id) {
-  const distributionData = await getDistribution(shop_id);
-  const allotmentData = await getAllotment(shop_id);
+  try {
+    // Running both in parallel for efficiency
+    const [distributionData = [], allotmentData = []] = await Promise.all([
+      getDistribution(shop_id).catch(() => []),
+      getAllotment(shop_id).catch(() => []),
+    ]);
 
-  return findAllotment(distributionData, allotmentData);
+    return findAllotment(distributionData, allotmentData);
+  } catch (err) {
+    console.error("Error in getFinalData:", err);
+    return [];
+  }
 }
 
 function findAllotment(distributionData, allotmentData) {
   const searchableRC = Object.fromEntries(
-    distributionData.map((obj) => [obj.rc_id, obj]),
+    distributionData.map(obj => [obj.rc_id, obj])
   );
 
-  return allotmentData.map((a) => {
+  return allotmentData.map(a => {
     const b = searchableRC[a.rc_id];
     const result = { rc_id: a.rc_id };
 
