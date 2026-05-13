@@ -1,16 +1,42 @@
-# React + Vite
+# 📦 Pending Status of Distribution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Next.js application deployed on **Vercel** that fetches and displays ration card distribution data from the **Chhattisgarh AePDS system**.  
+This project helps users check the **pending status of distribution** for April, May, and June.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
+- **API Integration**: Connects to the official AePDS endpoint (`epos.cg.gov.in`) to retrieve beneficiary transaction details.
+- **Custom API Route**: Implements `/api/getPortData` for secure serverless data fetching.
+- **React Hook**: Includes a reusable `usePortData` hook with built‑in error and loading states.
+- **Error Handling**: Gracefully manages timeouts, invalid inputs, and remote API failures.
+- **Deployment**: Hosted on Vercel for fast, serverless execution and easy scalability.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ Tech Stack
+- **Frontend**: React + Next.js  
+- **Backend**: Next.js API routes (serverless functions)  
+- **Deployment**: Vercel  
+- **Data Source**: Chhattisgarh AePDS (`SRC_Trans_Int` endpoint)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📊 Usage
+1. Enter a valid **ration card ID (`rc_id`)**.  
+2. The app queries AePDS for the given month/year.  
+3. Displays:
+   - **FPS ID**  
+   - **Member name**  
+   - **Pending distribution status**
+
+---
+
+## 🛠 Installation
+
+Clone the repo and install dependencies:
+
+```bash
+git clone https://github.com/vijaysinha/pendingDistributionVercel.git
+cd pendingDistributionVercel
+npm install
