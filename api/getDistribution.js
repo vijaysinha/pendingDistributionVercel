@@ -8,7 +8,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "shop_id is required" });
   }
 
-  const formatted = "2026-05-07";
+ const today = new Date();
+const formatted = today.toISOString().split("T")[0];
 
   try {
     const apiResponse = await fetch(
