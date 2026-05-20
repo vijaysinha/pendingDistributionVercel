@@ -1,6 +1,6 @@
 import usePortData from "../usePortData";
 function PortComponent({ rc_id }) {
-   if (!rc_id) return "संभवतः चावल का उठाव पूरा हो गया।"
+   if (!rc_id) return <p>"संभवतः चावल का उठाव पूरा हो गया।"</p>
     const { error, fps_id, loading } = usePortData(rc_id);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error fetching data</p>;
