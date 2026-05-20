@@ -174,7 +174,11 @@ function Frame() {
                       >
                         {item.gram}
                       </span></p>
-                    <p className="my-2"><PortComponent rc_id={item.rc_id} /></p>
+                    <p className="my-2">
+                      
+                      {item.rice > 0 ? <PortComponent rc_id={item.rc_id} :"" />}
+                    
+                    </p>
                   </div>
                 ))}
               </div>
