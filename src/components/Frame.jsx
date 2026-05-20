@@ -176,7 +176,7 @@ function Frame() {
                       </span></p>
                     <p className="my-2">
                       
-                      {item.rice > 0 ? <PortComponent rc_id={item.rc_id} :"" />}
+                      {item.rice > 0 ? <PortComponent rc_id={item.rc_id} /> : null}
                     
                     </p>
                   </div>
