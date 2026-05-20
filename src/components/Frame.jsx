@@ -116,7 +116,7 @@ function Frame() {
                       <td className={`px-2 py-1 md:px-6 md:py-3 ${item.salt > 0 ? "bg-red-400 text-zinc-300" : ""}`}>{item.salt}</td>
                       <td className={`px-2 py-1 md:px-6 md:py-3 ${item.gram > 0 ? "bg-red-400 text-zinc-300" : ""}`}>{item.gram}</td>
                       <td className={`px-2 py-1 md:px-6 md:py-3 `}>
-                        <PortComponent rc_id={item.rc_id} /> 
+                        {item.rice > 0 ? <PortComponent rc_id={item.rc_id} /> : null}
                       </td>
                     </tr>
                   )
